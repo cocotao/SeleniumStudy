@@ -40,6 +40,7 @@ public class MaFengWo_AU {
 		options.addArguments("--start-maximized");
 		options.addArguments("--lang=en");
 		options.addArguments("-–new-tab");
+		options.addArguments("--headless");
 		
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		driver = new ChromeDriver(capabilities);
@@ -47,12 +48,12 @@ public class MaFengWo_AU {
 		int j = 0;
 		
 		// TODO: change the counts
-		for (int i = 1; i <= 2000; i++) {
+		for (int i = 1; i <= 4; i++) {
 			String baseUrl = "http://www.mafengwo.cn";
 			driver.get(baseUrl);
 			System.out.println("enter the mafeng wo portal");
 			
-			Thread.sleep(3000);	// 强制等待3秒
+			Thread.sleep(2000);
 			driver.findElement(By.xpath("//*[@placeholder='搜目的地/攻略/酒店/旅行特价']")).sendKeys("风光大洋路 萌宠袋鼠岛 南澳自驾春游记");
 	        driver.findElement(By.xpath("//div[contains(@id, 'search_btn_all')]/a")).click();
 	        driver.findElement(By.xpath("//*[@id=\"_j_mfw_search_main\"]/div[1]/div/div/a[3]")).click();
@@ -61,7 +62,7 @@ public class MaFengWo_AU {
 	        System.out.println("test counts: " + i);
 	        
 	        j++;
-	        if (j == 30) {
+	        if (j == 2) {
 	        	driver.close();
 	        	driver.quit();
 	        	
