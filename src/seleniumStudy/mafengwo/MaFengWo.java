@@ -1,4 +1,4 @@
-package seleniumStudy;
+package seleniumStudy.mafengwo;
 
 import java.util.ArrayList;
 
@@ -30,10 +30,11 @@ public class MaFengWo {
 		
 		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		driver = new ChromeDriver(capabilities);
-		int j = 0;
+		int i = 0, j = 0;
 		
 		// TODO: change the counts
-		for (int i = 1; i <= 2; i++) {
+		retry:
+		for (i = 1; i <= 2; i++) {
 			try {
 				String baseUrl = "http://www.mafengwo.cn";
 				driver.get(baseUrl);
@@ -44,12 +45,13 @@ public class MaFengWo {
 		        driver.findElement(By.xpath("//div[contains(@id, 'search_btn_all')]/a")).click();
 		        // TODO: change the article id 
 		        driver.findElement(By.xpath("//a[contains(@href, '10904630')]")).click();
-			} catch (NoSuchElementException e) {
+			} catch (Exception e) {
 				driver.close();
 	        	driver.quit();
 	        	
 	        	j = 0;
 	        	driver = new ChromeDriver(capabilities);
+	        	continue retry;
 			}
 	        
 	        System.out.println("test counts: " + i);
