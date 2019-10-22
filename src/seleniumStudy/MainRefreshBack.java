@@ -1,20 +1,15 @@
 package seleniumStudy;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import seleniumStudy.mafengwo.MaFengWoAU;
 import seleniumStudy.qiongyou.QiongYouAU;
 
-import java.io.File;
-import java.io.IOException;
 
-
-public class MainRefresh {
+public class MainRefreshBack {
     private final static int REFRESH_COUNT = 10;
     private final static int CHROME_TAB_NUM_MAX = 7;
 
     public static void main(String[] args) {
-        // ChromeDriverService service = new ChromeDriverService.Builder() .usingChromeDriverExecutable(new File("E:\\Selenium WebDriver\\chromedriver_win_23.0.1240.0\\chromedriver.exe")).usingAnyFreePort().build();
         QiongYouAU maFengWoAU = new QiongYouAU();
         WebDriver webDriver = null;
         webDriver = maFengWoAU.getWebDriver();
@@ -37,6 +32,8 @@ public class MainRefresh {
                         continue retry;
                     } catch (Exception e2) {
                         System.out.println("[Debug] Exceptions 2: " + e2.toString());
+                        webDriver.close();
+                        webDriver.quit();
                         webDriver = maFengWoAU.getWebDriver();
                         continue retry;
                     }
