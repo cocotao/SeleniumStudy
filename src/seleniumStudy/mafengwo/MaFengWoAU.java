@@ -49,14 +49,18 @@ public class MaFengWoAU {
 	}
 
 	public void refreshPageOnce(WebDriver driver, int refreshNum) throws Exception {
-		String baseUrl = "http://www.mafengwo.cn";
+//		String baseUrl = "http://www.mafengwo.cn";
+		String baseUrl = "http://www.mafengwo.cn/search/q.php?q=%E9%A3%8E%E5%85%89%E5%A4%A7%E6%B4%8B%E8%B7%AF%20%E8%90%8C%E5%AE%A0%E8%A2%8B%E9%BC%A0%E5%B2%9B%20%E5%8D%97%E6%BE%B3%E8%87%AA%E9%A9%BE%E6%B8%B8";
 		driver.get(baseUrl);
-		System.out.println("enter the mafeng wo portal " + refreshNum);
+		System.out.println("enter the ma feng wo portal " + refreshNum);
+
+	//	driver.findElement(By.xpath("//*[@placeholder='搜目的地/攻略/酒店/旅行特价']")).sendKeys("风光大洋路 萌宠袋鼠岛 南澳自驾春游记");
+	//	driver.findElement(By.xpath("//div[contains(@id, 'search_btn_all')]/a")).click();
+	//	driver.findElement(By.xpath(""));
 
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[@placeholder='搜目的地/攻略/酒店/旅行特价']")).sendKeys("风光大洋路 萌宠袋鼠岛 南澳自驾春游记");
-		driver.findElement(By.xpath("//div[contains(@id, 'search_btn_all')]/a")).click();
-		driver.findElement(By.xpath("//*[@id=\"_j_mfw_search_main\"]/div[1]/div/div/a[3]")).click();
+		driver.findElement(By.xpath("//a[@data-search-category='notes']")).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//a[contains(@href, '17249458')]")).click();
 	}
 

@@ -15,7 +15,7 @@ public class MainRefresh {
 
     public static void main(String[] args) {
         // ChromeDriverService service = new ChromeDriverService.Builder() .usingChromeDriverExecutable(new File("E:\\Selenium WebDriver\\chromedriver_win_23.0.1240.0\\chromedriver.exe")).usingAnyFreePort().build();
-        QiongYouAU maFengWoAU = new QiongYouAU();
+        MaFengWoAU maFengWoAU = new MaFengWoAU();
         WebDriver webDriver = null;
         webDriver = maFengWoAU.getWebDriver();
 
